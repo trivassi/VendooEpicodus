@@ -10,4 +10,46 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="co.vendoo.vendooepicodus.CreateAccountActivity">
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/lastNameEditText"
+        android:hint="Last Name"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/firstNameEditText"
+        android:layout_alignStart="@+id/firstNameEditText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/firstNameEditText"
+        android:hint="First Name"
+        android:layout_above="@+id/lastNameEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="22dp" />
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="23dp"
+        android:layout_below="@+id/lastNameEditText"
+        android:layout_alignLeft="@+id/lastNameEditText"
+        android:layout_alignStart="@+id/lastNameEditText">
+        <RadioButton android:id="@+id/radio_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton android:id="@+id/radio_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
+
 </RelativeLayout>

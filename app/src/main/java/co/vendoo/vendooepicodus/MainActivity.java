@@ -34,17 +34,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (v == mLogInButton) {
             Intent intent = new Intent(MainActivity.this, CreateAccountActivity.class);
-            intent.putExtra("location", location);
             startActivity(intent);
             Toast.makeText(MainActivity.this, "Log in with Facebook coming soon!", Toast.LENGTH_LONG).show();
         }
 
         if (v == mCreateAccountButton) {
             Intent intent = new Intent(MainActivity.this, CreateAccountActivity.class);
-            intent.putExtra("location", location);
+//            intent.putExtra("location", location);
             startActivity(intent);
-            Toast.makeText(MainActivity.this, "Log in with Facebook coming soon!", Toast.LENGTH_LONG).show();
-
         }
 
 
