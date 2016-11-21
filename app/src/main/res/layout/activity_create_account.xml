@@ -32,24 +32,24 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="22dp" />
 
-    <RadioGroup
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="23dp"
-        android:layout_below="@+id/lastNameEditText"
-        android:layout_alignLeft="@+id/lastNameEditText"
-        android:layout_alignStart="@+id/lastNameEditText">
-        <RadioButton android:id="@+id/radio_female"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Female"
-            android:onClick="onRadioButtonClicked"/>
-        <RadioButton android:id="@+id/radio_male"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Male"
-            android:onClick="onRadioButtonClicked"/>
-    </RadioGroup>
+    <!--<RadioGroup-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_marginTop="23dp"-->
+        <!--android:layout_below="@+id/lastNameEditText"-->
+        <!--android:layout_alignLeft="@+id/lastNameEditText"-->
+        <!--android:layout_alignStart="@+id/lastNameEditText">-->
+        <!--<RadioButton android:id="@+id/radio_female"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Female"-->
+            <!--android:onClick="onRadioButtonClicked"/>-->
+        <!--<RadioButton android:id="@+id/radio_male"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Male"-->
+            <!--android:onClick="onRadioButtonClicked"/>-->
+    <!--</RadioGroup>-->
 
 </RelativeLayout>
