@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import android.widget.Toast;
 
 import butterknife.Bind;
@@ -18,12 +20,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Bind(R.id.logInButton) Button mLogInButton;
     @Bind(R.id.createAccountButton) Button mCreateAccountButton;
+    @Bind(R.id.appNameTextView) TextView mAppNameTextView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        Typeface josefinSans = Typeface.createFromAsset(getAssets(), "fonts/JosefinSans-Regular.ttf");
+        mAppNameTextView.setTypeface(josefinSans);
 
         mLogInButton.setOnClickListener(this);
         mCreateAccountButton.setOnClickListener(this);
@@ -33,8 +40,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
 
         if (v == mLogInButton) {
-            Intent intent = new Intent(MainActivity.this, CreateAccountActivity.class);
-            startActivity(intent);
             Toast.makeText(MainActivity.this, "Log in with Facebook coming soon!", Toast.LENGTH_LONG).show();
         }
 
