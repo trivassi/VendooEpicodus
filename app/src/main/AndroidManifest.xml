@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".CreateAccountActivity" />
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".MarketplacesActivity"></activity>
     </application>
 
 </manifest>
