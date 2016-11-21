@@ -28,4 +28,14 @@
         android:layout_alignLeft="@+id/buyButton"
         android:layout_alignStart="@+id/buyButton"
         android:layout_marginBottom="76dp" />
+
+    <TextView
+        android:text="Welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/buyButton"
+        android:layout_alignStart="@+id/buyButton"
+        android:layout_marginTop="41dp"
+        android:id="@+id/greetingTextView" />
 </RelativeLayout>

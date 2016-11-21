@@ -32,6 +32,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="22dp" />
 
+    <Button
+        android:text="Create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lastNameEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:id="@+id/createButton" />
+
     <!--<RadioGroup-->
         <!--android:layout_width="fill_parent"-->
         <!--android:layout_height="wrap_content"-->

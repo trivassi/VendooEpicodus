@@ -19,6 +19,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     @Bind(R.id.buyButton) Button mBuyButton;
     @Bind(R.id.sellButton) Button mSellButton;
+    @Bind(R.id.greetingTextView) TextView mGreetingTextView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         mBuyButton.setOnClickListener(this);
         mSellButton.setOnClickListener(this);
+
+        Intent intent = getIntent();
+        String firstName = intent.getStringExtra("firstName");    //Retrieve extended data from the intent.
+
+        mGreetingTextView.setText("Welcome " + firstName + "!");
     }
 
 
@@ -41,5 +48,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+
+
+
 
 }
