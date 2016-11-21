@@ -39,6 +39,8 @@
         android:layout_below="@+id/lastNameEditText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="55dp"
+        android:background="@color/colorPrimaryText"
+        android:textColor="@color/colorTextIcons"
         android:id="@+id/createButton" />
 
     <!--<RadioGroup-->

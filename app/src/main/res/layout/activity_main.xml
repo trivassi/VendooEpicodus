@@ -7,6 +7,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="co.vendoo.vendooepicodus.MainActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/logo"
+        android:scaleType="fitCenter" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,18 +21,15 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
         android:id="@+id/appNameTextView"/><![CDATA[
     />
 
-    ]]>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create Account"
-        android:id="@+id/createAccountButton"
-        android:layout_above="@+id/logInButton"
-        android:layout_centerHorizontal="true" />
+
+    ]]>
 
     <Button
         android:layout_width="wrap_content"
@@ -34,8 +38,20 @@
         android:id="@+id/logInButton"
         android:layout_marginBottom="42dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimaryText"
+        android:textColor="@color/colorTextIcons"     />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Account"
+        android:id="@+id/createAccountButton"
+        android:background="@color/colorPrimaryText"
+        android:textColor="@color/colorTextIcons"
+        android:layout_marginBottom="22dp"
+        android:layout_above="@+id/logInButton"
+        android:layout_centerHorizontal="true" />
     ...
 </RelativeLayout>
 
