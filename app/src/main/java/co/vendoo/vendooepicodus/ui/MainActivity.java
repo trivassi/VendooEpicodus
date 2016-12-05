@@ -11,7 +11,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import android.widget.Toast;
 
-import co.vendoo.vendooepicodus.CreateAccountActivity;
 import co.vendoo.vendooepicodus.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {

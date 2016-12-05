@@ -1,4 +1,4 @@
-package co.vendoo.vendooepicodus;
+package co.vendoo.vendooepicodus.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import co.vendoo.vendooepicodus.ui.HomeActivity;
+import co.vendoo.vendooepicodus.R;
 
 
 public class CreateAccountActivity extends AppCompatActivity implements View.OnClickListener{

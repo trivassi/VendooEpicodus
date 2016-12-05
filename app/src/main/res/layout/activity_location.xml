@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_above="@+id/button2"
+        android:layout_above="@+id/zipCodeButton"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="76dp"
@@ -36,7 +36,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button2"
+        android:id="@+id/zipCodeButton"
         android:layout_marginBottom="69dp"
         android:text="Find with Zip Code"
         android:layout_above="@+id/currentLocationButton"

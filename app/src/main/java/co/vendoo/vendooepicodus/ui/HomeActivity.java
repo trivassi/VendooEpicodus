@@ -40,12 +40,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
 
         if (v == mFindButton) {
-            Intent intent = new Intent(HomeActivity.this, StoresActivity.class);
+            Intent intent = new Intent(HomeActivity.this, LocationActivity.class);
             //            intent.putExtra("location", location);
             startActivity(intent);
 
         } else if (v == mTripsButton) {
-            Toast.makeText(HomeActivity.this, "Using your location coming soon!", Toast.LENGTH_LONG).show();
+            Toast.makeText(HomeActivity.this, "Trip info coming soon!", Toast.LENGTH_LONG).show();
         }
 
     }

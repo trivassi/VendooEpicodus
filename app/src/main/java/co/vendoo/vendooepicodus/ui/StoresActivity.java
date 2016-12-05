@@ -1,5 +1,6 @@
 package co.vendoo.vendooepicodus.ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -21,9 +22,10 @@ public class StoresActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_marketplaces);
-
         ButterKnife.bind(this);
 
+        Intent intent = getIntent();
+        String location = intent.getStringExtra("location");
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, marketplaces);
         mListView.setAdapter(adapter);
