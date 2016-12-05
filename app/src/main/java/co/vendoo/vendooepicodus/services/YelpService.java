@@ -1,4 +1,4 @@
-package co.vendoo.vendooepicodus;
+package co.vendoo.vendooepicodus.services;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -7,6 +7,8 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import co.vendoo.vendooepicodus.Constants;
+import co.vendoo.vendooepicodus.models.Store;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.HttpUrl;

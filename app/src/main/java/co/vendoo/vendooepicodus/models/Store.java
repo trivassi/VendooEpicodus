@@ -1,11 +1,15 @@
-package co.vendoo.vendooepicodus;
+package co.vendoo.vendooepicodus.models;
 
 import java.util.ArrayList;
+
+import org.parceler.Parcel;
+
 
 /**
  * Created by T on 12/4/16.
  */
 
+@Parcel
 public class Store {
     private String mName;
     private String mPhone;
@@ -15,6 +19,8 @@ public class Store {
     private ArrayList<String> mAddress = new ArrayList<>();
     private double mLatitude;
     private double mLongitude;
+
+    public Store() {}
 
     public Store(String name, String phone, String website,
                       double rating, String imageUrl, ArrayList<String> address,

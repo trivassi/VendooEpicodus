@@ -32,7 +32,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
         if (v == mZipCodeButton) {
             String location = mLocationEditText.getText().toString();
 
-            Intent intent = new Intent(LocationActivity.this , StoresActivity.class);
+            Intent intent = new Intent(LocationActivity.this , StoreListActivity.class);
             intent.putExtra("location", location);
             startActivity(intent);
         } else if (v == mCurrentLocationButton) {

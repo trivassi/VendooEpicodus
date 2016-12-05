@@ -26,11 +26,12 @@
         <activity android:name=".ui.CreateAccountActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="co.vendoo.vendooepicodus.ui.MainActivity"></meta-data>
+                android:value="co.vendoo.vendooepicodus.ui.MainActivity" />
         </activity>
         <activity android:name=".ui.HomeActivity" />
-        <activity android:name=".ui.StoresActivity" />
-        <activity android:name=".ui.LocationActivity"></activity>
+        <activity android:name=".ui.StoreListActivity" />
+        <activity android:name=".ui.LocationActivity" />
+        <activity android:name=".ui.StoreDetailActivity"></activity>
     </application>
 
 </manifest>
