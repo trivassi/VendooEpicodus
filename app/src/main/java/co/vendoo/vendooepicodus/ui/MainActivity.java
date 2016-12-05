@@ -1,20 +1,18 @@
-package co.vendoo.vendooepicodus;
+package co.vendoo.vendooepicodus.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import android.widget.Toast;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
+import co.vendoo.vendooepicodus.CreateAccountActivity;
+import co.vendoo.vendooepicodus.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 

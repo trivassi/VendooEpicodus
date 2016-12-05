@@ -8,34 +8,32 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="co.vendoo.vendooepicodus.HomeActivity">
+    tools:context="co.vendoo.vendooepicodus.ui.HomeActivity">
 
     <Button
-        android:text="Buy"
+        android:text="Trips"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="155dp"
-        android:id="@+id/buyButton"
+        android:id="@+id/tripsButton"
+        android:layout_alignTop="@+id/findButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="77dp" />
+
+    <Button
+        android:text="Find Stores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="157dp"
+        android:id="@+id/findButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
-
-    <Button
-        android:text="Sell"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/sellButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/buyButton"
-        android:layout_alignStart="@+id/buyButton"
-        android:layout_marginBottom="76dp" />
 
     <TextView
         android:text="Welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/greetingTextView"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/buyButton"
-        android:layout_alignStart="@+id/buyButton"
-        android:layout_marginTop="41dp"
-        android:id="@+id/greetingTextView" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="51dp" />
 </RelativeLayout>

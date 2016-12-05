@@ -9,9 +9,11 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import co.vendoo.vendooepicodus.R;
 
-public class MarketplacesActivity extends AppCompatActivity {
+public class StoresActivity extends AppCompatActivity {
 
     private String[] marketplaces = new String[] {"eBay", "Etsy", "Amazon", "Letgo", "Craigslist", "Mercari", "Offerup", "Grailed", "Poshmark"};
+    public static final String TAG = StoresActivity.class.getSimpleName();
+
     @Bind(R.id.listView) ListView mListView;
 
 
