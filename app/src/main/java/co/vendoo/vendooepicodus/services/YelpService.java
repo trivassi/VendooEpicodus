@@ -53,18 +53,18 @@ public class YelpService {
                 JSONObject yelpJSON = new JSONObject(jsonData);
                 JSONArray businessesJSON = yelpJSON.getJSONArray("businesses");
                 for (int i = 0; i < businessesJSON.length(); i++) {
-                    JSONObject restaurantJSON = businessesJSON.getJSONObject(i);
-                    String name = restaurantJSON.getString("name");
-                    String phone = restaurantJSON.optString("display_phone", "Phone not available");
-                    String website = restaurantJSON.getString("url");
-                    double rating = restaurantJSON.getDouble("rating");
-                    String imageUrl = restaurantJSON.getString("image_url");
-                    double latitude = restaurantJSON.getJSONObject("location")
+                    JSONObject storeJSON = businessesJSON.getJSONObject(i);
+                    String name = storeJSON.getString("name");
+                    String phone = storeJSON.optString("display_phone", "Phone not available");
+                    String website = storeJSON.getString("url");
+                    double rating = storeJSON.getDouble("rating");
+                    String imageUrl = storeJSON.getString("image_url");
+                    double latitude = storeJSON.getJSONObject("location")
                             .getJSONObject("coordinate").getDouble("latitude");
-                    double longitude = restaurantJSON.getJSONObject("location")
+                    double longitude = storeJSON.getJSONObject("location")
                             .getJSONObject("coordinate").getDouble("longitude");
                     ArrayList<String> address = new ArrayList<>();
-                    JSONArray addressJSON = restaurantJSON.getJSONObject("location")
+                    JSONArray addressJSON = storeJSON.getJSONObject("location")
                             .getJSONArray("display_address");
                     for (int y = 0; y < addressJSON.length(); y++) {
                         address.add(addressJSON.get(y).toString());

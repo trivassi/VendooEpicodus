@@ -10,7 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import butterknife.Bind;
+import butterknife.ButterKnife;
 import co.vendoo.vendooepicodus.R;
 import co.vendoo.vendooepicodus.models.Store;
 
@@ -28,7 +31,7 @@ public class StoreDetailFragment extends Fragment {
 
     private Store mStore;
 
-    public StoreDetailFragment newInstance(Store store) {
+    public static StoreDetailFragment newInstance(Store store) {
         StoreDetailFragment storeDetailFragment = new StoreDetailFragment();
         Bundle args = new Bundle();
         args.putParcelable("store", Parcels.wrap(store));
@@ -36,12 +39,25 @@ public class StoreDetailFragment extends Fragment {
         return storeDetailFragment;
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mStore = Parcels.unwrap(getArguments().getParcelable("store"));
+    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_store_detail, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_store_detail, container, false);
+        ButterKnife.bind(this, view);
+
+        Picasso.with(view.getContext()).load(mStore.getImageUrl()).into(mImageLabel);
+
+        mNameLabel.setText(mStore.getName());
+        mRatingLabel.setText(Double.toString(mStore.getRating()) + "/5");
+        mPhoneLabel.setText(mStore.getPhone());
+        mAddressLabel.setText(android.text.TextUtils.join(", ", mStore.getAddress()));
+
+        return view;
     }
 
 }

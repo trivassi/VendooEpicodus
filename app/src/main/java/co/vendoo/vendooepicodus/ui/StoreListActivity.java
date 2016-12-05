@@ -24,7 +24,7 @@ import co.vendoo.vendooepicodus.services.YelpService;
 public class StoreListActivity extends AppCompatActivity {
     public static final String TAG = StoreListActivity.class.getSimpleName();
 
-    @Bind(R.id.recyclerView) ListView mRecyclerView;
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private StoreListAdapter mAdapter;
 
     public ArrayList<Store> mStores = new ArrayList<>();
@@ -57,7 +57,6 @@ public class StoreListActivity extends AppCompatActivity {
                 mStores = yelpService.processResults(response);
 
                 StoreListActivity.this.runOnUiThread(new Runnable() {
-
 
                     @Override
                     public void run() {
