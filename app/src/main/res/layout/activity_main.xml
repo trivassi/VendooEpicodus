@@ -7,6 +7,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="co.vendoo.vendooepicodus.MainActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/armario_v"
+        android:scaleType="centerCrop" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,13 +23,9 @@
         android:layout_marginTop="35dp"
         android:textSize="40sp"
         android:textStyle="bold"
-        android:textColor="@color/colorPrimary"
-        android:id="@+id/appNameTextView"/><![CDATA[
+        android:textColor="@color/colorTextIcons"
+        android:id="@+id/appNameTextView"/>
     />
-
-
-
-    ]]>
 
     <Button
         android:layout_width="wrap_content"
@@ -46,16 +49,7 @@
         android:layout_above="@+id/logInButton"
         android:layout_centerHorizontal="true" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@drawable/logo"
-        android:scaleType="fitCenter"
-        android:layout_marginBottom="118dp"
-        android:layout_above="@+id/createAccountButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+
     ...
 </RelativeLayout>
 

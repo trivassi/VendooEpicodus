@@ -24,20 +24,29 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-}
-
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:25.0.1'
-    testCompile 'junit:junit:4.12'
-    compile 'com.jakewharton:butterknife:7.0.1'
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2') {
-        exclude group: 'com.android.support', module: 'support-annotations'
+    buildTypes.each {
+        it.buildConfigField 'String', 'YELP_CONSUMER_KEY', YelpConsumerKey
+        it.buildConfigField 'String', 'YELP_CONSUMER_SECRET', YelpConsumerSecret
+        it.buildConfigField 'String', 'YELP_TOKEN', YelpToken
+        it.buildConfigField 'String', 'YELP_TOKEN_SECRET', YelpTokenSecret
     }
-    androidTestCompile('com.android.support.test:runner:0.3') {
-        exclude group: 'com.android.support', module: 'support-annotations'
+
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+        androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+        compile 'com.android.support:appcompat-v7:25.0.1'
+        testCompile 'junit:junit:4.12'
+        compile 'com.jakewharton:butterknife:7.0.1'
+        compile 'com.squareup.okhttp3:okhttp:3.2.0'
+        compile 'se.akerfeldt:okhttp-signpost:1.1.0'
+        compile 'com.google.android.gms:play-services:8.4.0'
+        androidTestCompile('com.android.support.test.espresso:espresso-core:2.2') {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        }
+        androidTestCompile('com.android.support.test:runner:0.3') {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        }
     }
 }
