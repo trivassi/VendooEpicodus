@@ -21,6 +21,8 @@ import co.vendoo.vendooepicodus.models.Store;
  * A simple {@link Fragment} subclass.
  */
 public class StoreDetailFragment extends Fragment {
+    private static final int MAX_WIDTH = 400;
+    private static final int MAX_HEIGHT = 300;
     @Bind(R.id.storeImageView) ImageView mImageLabel;
     @Bind(R.id.storeNameTextView) TextView mNameLabel;
     @Bind(R.id.ratingTextView) TextView mRatingLabel;
@@ -50,7 +52,11 @@ public class StoreDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_store_detail, container, false);
         ButterKnife.bind(this, view);
 
-        Picasso.with(view.getContext()).load(mStore.getImageUrl()).into(mImageLabel);
+        Picasso.with(view.getContext())
+                .load(mStore.getImageUrl())
+                .resize(MAX_WIDTH, MAX_HEIGHT)
+                .centerCrop()
+                .into(mImageLabel);
 
         mNameLabel.setText(mStore.getName());
         mRatingLabel.setText(Double.toString(mStore.getRating()) + "/5");

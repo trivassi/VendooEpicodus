@@ -62,11 +62,9 @@ public class StoreListActivity extends AppCompatActivity {
                     public void run() {
                         mAdapter = new StoreListAdapter(getApplicationContext(), mStores);
                         mRecyclerView.setAdapter(mAdapter);
-                        RecyclerView.LayoutManager layoutManager =
-                                new LinearLayoutManager(StoreListActivity.this);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(StoreListActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
-
                     }
                 }); //runonuithread
 

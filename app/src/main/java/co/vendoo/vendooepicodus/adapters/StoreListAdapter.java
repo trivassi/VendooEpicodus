@@ -23,6 +23,9 @@ import co.vendoo.vendooepicodus.models.Store;
  */
 
 public class StoreListAdapter extends RecyclerView.Adapter<StoreListAdapter.StoreViewHolder> {
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
+
     private ArrayList<Store> mStores = new ArrayList<>();
     private Context mContext;
 
