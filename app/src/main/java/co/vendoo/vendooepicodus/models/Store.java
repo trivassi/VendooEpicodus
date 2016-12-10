@@ -1,7 +1,6 @@
 package co.vendoo.vendooepicodus.models;
 
 import java.util.ArrayList;
-
 import org.parceler.Parcel;
 
 
@@ -11,14 +10,14 @@ import org.parceler.Parcel;
 
 @Parcel
 public class Store {
-    private String mName;
-    private String mPhone;
-    private String mWebsite;
-    private double mRating;
-    private String mImageUrl;
-    private ArrayList<String> mAddress = new ArrayList<>();
-    private double mLatitude;
-    private double mLongitude;
+    String mName;
+    String mPhone;
+    String mWebsite;
+    double mRating;
+    String mImageUrl;
+    ArrayList<String> mAddress = new ArrayList<>();
+    double mLatitude;
+    double mLongitude;
 
     public Store() {}
 

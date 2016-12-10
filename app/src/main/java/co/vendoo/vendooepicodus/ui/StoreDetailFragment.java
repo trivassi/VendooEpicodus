@@ -1,6 +1,5 @@
 package co.vendoo.vendooepicodus.ui;
 
-import org.parceler.Parcels;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,12 +9,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import co.vendoo.vendooepicodus.R;
+import co.vendoo.vendooepicodus.models.Store;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import co.vendoo.vendooepicodus.R;
-import co.vendoo.vendooepicodus.models.Store;
+
 
 /**
  * A simple {@link Fragment} subclass.
