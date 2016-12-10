@@ -1,6 +1,8 @@
 package co.vendoo.vendooepicodus.ui;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -22,7 +24,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class StoreDetailFragment extends Fragment {
+public class StoreDetailFragment extends Fragment implements View.OnClickListener {
     private static final int MAX_WIDTH = 400;
     private static final int MAX_HEIGHT = 300;
     @Bind(R.id.storeImageView) ImageView mImageLabel;
@@ -65,7 +67,32 @@ public class StoreDetailFragment extends Fragment {
         mPhoneLabel.setText(mStore.getPhone());
         mAddressLabel.setText(android.text.TextUtils.join(", ", mStore.getAddress()));
 
+        mWebsiteLabel.setOnClickListener(this);
+        mPhoneLabel.setOnClickListener(this);
+        mAddressLabel.setOnClickListener(this);
+
+
         return view;
     }
 
+    @Override
+    public void onClick(View view) {
+        if (view == mWebsiteLabel) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mStore.getWebsite()));
+            startActivity(webIntent);
+        }
+
+        if (view == mPhoneLabel) {
+            Intent phoneIntent = new Intent(Intent.ACTION_DIAL, Uri.parse(mStore.getPhone()));
+            startActivity(phoneIntent);
+        }
+
+        if (view == mAddressLabel) {
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("geo:" + mStore.getLatitude()
+                            + "," + mStore.getLongitude()
+                            + "?q=(" + mStore.getName() + ")"));
+            startActivity(mapIntent);
+        }
+    }
 }

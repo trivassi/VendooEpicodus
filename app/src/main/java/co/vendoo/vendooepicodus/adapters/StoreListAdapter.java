@@ -68,13 +68,13 @@ public class StoreListAdapter extends RecyclerView.Adapter<StoreListAdapter.Stor
         public StoreViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+
             mContext = itemView.getContext();
             itemView.setOnClickListener(this);
         }
 
         public void bindStore(Store store) {
             Picasso.with(mContext).load(store.getImageUrl()).into(mStoreImageView);
-
             mNameTextView.setText(store.getName());
 //            mCategoryTextView.setText(store.getCategories().get(0));
             mRatingTextView.setText("Rating: " + store.getRating() + "/5");
