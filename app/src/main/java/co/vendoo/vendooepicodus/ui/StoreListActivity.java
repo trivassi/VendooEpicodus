@@ -28,7 +28,7 @@ import co.vendoo.vendooepicodus.services.YelpService;
 public class StoreListActivity extends AppCompatActivity {
     private SharedPreferences mSharedPreferences;
     private String mRecentAddress;
-    public static final String TAG = StoreListActivity.class.getSimpleName();
+//    public static final String TAG = StoreListActivity.class.getSimpleName();
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private StoreListAdapter mAdapter;
