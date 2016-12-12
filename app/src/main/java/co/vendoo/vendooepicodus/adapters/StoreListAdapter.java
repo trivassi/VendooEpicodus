@@ -50,7 +50,6 @@ public class StoreListAdapter extends RecyclerView.Adapter<StoreListAdapter.Stor
     @Override
     public void onBindViewHolder(StoreListAdapter.StoreViewHolder holder, int position) {
         holder.bindStore(mStores.get(position));
-
     }
 
     @Override

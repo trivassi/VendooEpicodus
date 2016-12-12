@@ -9,11 +9,9 @@
     android:paddingTop="16dp"
     tools:context="co.vendoo.vendooepicodus.ui.StoreListActivity">
 
-
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recyclerView"/>
-
 
 </RelativeLayout>
