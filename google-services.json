@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "871634077393",
+    "firebase_url": "https://vendooepicodus-1480794566450.firebaseio.com",
+    "project_id": "vendooepicodus-1480794566450",
+    "storage_bucket": "vendooepicodus-1480794566450.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:871634077393:android:1d2577d83fe0345d",
+        "android_client_info": {
+          "package_name": "co.vendoo.vendooepicodus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "871634077393-9fvu4ltvh986q2cdb9ddq8ucj39keusl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.vendoo.vendooepicodus",
+            "certificate_hash": "8D6AA4A36DB96EDEA1FCD89A8FCB11E82537E32B"
+          }
+        },
+        {
+          "client_id": "871634077393-l3ull5g40bi1p1hnneniuai2u63lj2kn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyY71yKAuYfwJRui_-XJBciKd7FBWQWtk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "871634077393-l3ull5g40bi1p1hnneniuai2u63lj2kn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
