@@ -1,6 +1,8 @@
 package co.vendoo.vendooepicodus.models;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import org.parceler.Parcel;
 
 
@@ -10,66 +12,62 @@ import org.parceler.Parcel;
 
 @Parcel
 public class Store {
-    String mName;
-    String mPhone;
-    String mWebsite;
-    double mRating;
-    String mImageUrl;
-    ArrayList<String> mAddress = new ArrayList<>();
-    double mLatitude;
-    double mLongitude;
+    String name;
+    String phone;
+    String website;
+    double rating;
+    String imageUrl;
+    List<String> address = new ArrayList<>();
+    double latitude;
+    double longitude;
 
     public Store() {}
 
-    public Store(String name, String phone, String website,
-                      double rating, String imageUrl, ArrayList<String> address,
-                      double latitude, double longitude) {
-        this.mName = name;
-        this.mPhone = phone;
-        this.mWebsite = website;
-        this.mRating = rating;
-        this.mImageUrl = getLargeImageUrl(imageUrl);
-        this.mAddress = address;
-        this.mLatitude = latitude;
-        this.mLongitude = longitude;
+    public Store(String name, String phone, String website, double rating, String imageUrl, ArrayList<String> address, double latitude, double longitude) {
+        this.name = name;
+        this.phone = phone;
+        this.website = website;
+        this.rating = rating;
+        this.imageUrl = getLargeImageUrl(imageUrl);
+        this.address = address;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
-
     public String getName() {
-        return mName;
+        return name;
     }
 
     public String getPhone() {
-        return mPhone;
+        return phone;
     }
 
     public String getWebsite() {
-        return  mWebsite;
+        return website;
     }
 
     public double getRating() {
-        return mRating;
+        return rating;
     }
 
-    public String getImageUrl(){
-        return mImageUrl;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public ArrayList<String> getAddress() {
-        return mAddress;
+    public List<String> getAddress() {
+        return address;
     }
 
     public double getLatitude() {
-        return mLatitude;
+        return latitude;
     }
 
     public double getLongitude() {
-        return mLongitude;
+        return longitude;
     }
 
     public String getLargeImageUrl(String imageUrl) {
         String largeImageUrl = imageUrl.substring(0, imageUrl.length() - 6).concat("o.jpg");
         return largeImageUrl;
     }
-
 }

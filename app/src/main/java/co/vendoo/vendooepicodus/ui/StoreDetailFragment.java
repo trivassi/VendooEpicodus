@@ -10,9 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import co.vendoo.vendooepicodus.Constants;
 import co.vendoo.vendooepicodus.R;
 import co.vendoo.vendooepicodus.models.Store;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -71,6 +76,7 @@ public class StoreDetailFragment extends Fragment implements View.OnClickListene
         mPhoneLabel.setOnClickListener(this);
         mAddressLabel.setOnClickListener(this);
 
+        mSaveStoreButton.setOnClickListener(this);
 
         return view;
     }
@@ -93,6 +99,14 @@ public class StoreDetailFragment extends Fragment implements View.OnClickListene
                             + "," + mStore.getLongitude()
                             + "?q=(" + mStore.getName() + ")"));
             startActivity(mapIntent);
+        }
+
+        if (view == mSaveStoreButton) {
+            DatabaseReference storeRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_STORES);
+            storeRef.push().setValue(mStore);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }
 }
