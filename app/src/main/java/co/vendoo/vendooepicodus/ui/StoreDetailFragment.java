@@ -89,7 +89,7 @@ public class StoreDetailFragment extends Fragment implements View.OnClickListene
         }
 
         if (view == mPhoneLabel) {
-            Intent phoneIntent = new Intent(Intent.ACTION_DIAL, Uri.parse(mStore.getPhone()));
+            Intent phoneIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + mStore.getPhone()));
             startActivity(phoneIntent);
         }
 
