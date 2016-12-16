@@ -32,7 +32,8 @@
         <activity android:name=".ui.StoreListActivity" />
         <activity android:name=".ui.LocationActivity" />
         <activity android:name=".ui.StoreDetailActivity" />
-        <activity android:name=".ui.SavedStoreListActivity"></activity>
+        <activity android:name=".ui.SavedStoreListActivity" />
+        <activity android:name=".ui.LoginActivity"></activity>
     </application>
 
 </manifest>
