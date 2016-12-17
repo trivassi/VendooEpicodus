@@ -3,6 +3,8 @@ package co.vendoo.vendooepicodus.ui;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import co.vendoo.vendooepicodus.R;
+
 public class LoginActivity extends AppCompatActivity {
 
     @Override
