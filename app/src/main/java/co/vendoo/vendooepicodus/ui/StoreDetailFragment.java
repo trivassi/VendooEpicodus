@@ -16,6 +16,8 @@ import co.vendoo.vendooepicodus.Constants;
 import co.vendoo.vendooepicodus.R;
 import co.vendoo.vendooepicodus.models.Store;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -102,10 +104,19 @@ public class StoreDetailFragment extends Fragment implements View.OnClickListene
         }
 
         if (view == mSaveStoreButton) {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+
             DatabaseReference storeRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_STORES);
-            storeRef.push().setValue(mStore);
+                    .getReference(Constants.FIREBASE_CHILD_STORES)
+                    .child(uid);
+
+            DatabaseReference pushRef = storeRef.push();
+            String pushId = pushRef.getKey();
+            mStore.setPushId(pushId);
+            pushRef.setValue(mStore);
+
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }

@@ -6,6 +6,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -24,21 +26,24 @@ public class SavedStoreListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-
-
         setContentView(R.layout.activity_stores);
         ButterKnife.bind(this);
 
-        mStoreReference= FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_STORES);
-        setUpFirebaseAdapter();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
 
+        mStoreReference = FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_STORES)
+                .child(uid);
+
+        setUpFirebaseAdapter();
     }
 
     private void setUpFirebaseAdapter() {
         mFirebaseAdapter = new FirebaseRecyclerAdapter<Store, FirebaseStoreViewHolder>
-                (Store.class, R.layout.store_list_item, FirebaseStoreViewHolder.class,
+                (Store.class, R.layout.store_list_item_drag, FirebaseStoreViewHolder.class,
                         mStoreReference) {
 
             @Override

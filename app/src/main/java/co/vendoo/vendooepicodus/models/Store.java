@@ -20,6 +20,7 @@ public class Store {
     List<String> address = new ArrayList<>();
     double latitude;
     double longitude;
+    private String pushId;
 
     public Store() {}
 
@@ -69,5 +70,13 @@ public class Store {
     public String getLargeImageUrl(String imageUrl) {
         String largeImageUrl = imageUrl.substring(0, imageUrl.length() - 6).concat("o.jpg");
         return largeImageUrl;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 }
