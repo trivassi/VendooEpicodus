@@ -21,6 +21,7 @@ public class Store {
     double latitude;
     double longitude;
     private String pushId;
+    String index;
 
     public Store() {}
 
@@ -33,6 +34,7 @@ public class Store {
         this.address = address;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.index = "not_specified";
     }
 
     public String getName() {
@@ -78,5 +80,13 @@ public class Store {
 
     public void setPushId(String pushId) {
         this.pushId = pushId;
+    }
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 }
