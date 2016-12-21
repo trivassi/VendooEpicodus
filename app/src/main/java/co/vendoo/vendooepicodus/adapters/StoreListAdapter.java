@@ -98,7 +98,7 @@ public class StoreListAdapter extends RecyclerView.Adapter<StoreListAdapter.Stor
                     .into(mStoreImageView);
 
             mNameTextView.setText(store.getName());
-            mRatingTextView.setText("Rating: " + store.getRating() + "/5");
+            mRatingTextView.setText("Rating: " + store.getRating() + "/5 ");
         }
 
         private void createDetailFragment(int position) {
@@ -107,7 +107,6 @@ public class StoreListAdapter extends RecyclerView.Adapter<StoreListAdapter.Stor
             ft.replace(R.id.storeDetailContainer, detailFragment);
             ft.commit();
         }
-
         @Override
         public void onClick(View view) {
 
