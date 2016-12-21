@@ -13,6 +13,7 @@ import okhttp3.Response;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.preference.PreferenceManager;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +26,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
+
+import org.parceler.Parcels;
 
 import co.vendoo.vendooepicodus.R;
 import co.vendoo.vendooepicodus.adapters.StoreListAdapter;
@@ -44,11 +47,64 @@ public class StoreListActivity extends AppCompatActivity implements OnStoreSelec
 
     private Integer mPosition;
     ArrayList<Store> mStores;
+    String mSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stores);
+
+        if (savedInstanceState != null) {
+
+            if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+                mPosition = savedInstanceState.getInt(Constants.EXTRA_KEY_POSITION);
+                mStores = Parcels.unwrap(savedInstanceState.getParcelable(Constants.EXTRA_KEY_STORES));
+                mSource = savedInstanceState.getString(Constants.KEY_SOURCE);
+
+                if (mPosition != null && mStores != null) {
+                    Intent intent = new Intent(this, StoreDetailActivity.class);
+                    intent.putExtra(Constants.EXTRA_KEY_POSITION, mPosition);
+                    intent.putExtra(Constants.EXTRA_KEY_STORES, Parcels.wrap(mStores));
+                    intent.putExtra(Constants.KEY_SOURCE, mSource);
+                    startActivity(intent);
+                }
+
+            }
+
+        }
+
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        if (mPosition != null && mStores != null) {
+            outState.putInt(Constants.EXTRA_KEY_POSITION, mPosition);
+            outState.putParcelable(Constants.EXTRA_KEY_STORES, Parcels.wrap(mStores));
+            outState.putString(Constants.KEY_SOURCE, mSource);
+        }
+
+    }
+
+
+    @Override
+    public void onStoreSelected(Integer position, ArrayList<Store> stores, String source) {
+        mPosition = position;
+        mStores = stores;
+        mSource = source;
+    }
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -65,14 +121,9 @@ public class StoreListActivity extends AppCompatActivity implements OnStoreSelec
 //        if (mRecentAddress != null) {
 //            getStores(mRecentAddress);
 //        }
-    }
 
-    @Override
-    public void onStoreSelected(Integer position, ArrayList<Store> stores) {
-        mPosition = position;
-        mStores = stores;
 
-    }
+
 
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
@@ -143,4 +194,4 @@ public class StoreListActivity extends AppCompatActivity implements OnStoreSelec
 //    private void addToSharedPreferences(String location) {
 //        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
 //    }
-}
+

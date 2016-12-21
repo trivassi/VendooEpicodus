@@ -74,7 +74,7 @@ public class StoreListAdapter extends RecyclerView.Adapter<StoreListAdapter.Stor
         private Context mContext;
         private int mOrientation;
 
-        public StoreViewHolder(View itemView) {
+        public StoreViewHolder(View itemView, ArrayList<Store> mStores, OnStoreSelectedListener mOnStoreSelectedListener) {
             super(itemView);
             ButterKnife.bind(this, itemView);
 
@@ -102,7 +102,7 @@ public class StoreListAdapter extends RecyclerView.Adapter<StoreListAdapter.Stor
         }
 
         private void createDetailFragment(int position) {
-            StoreDetailFragment detailFragment = StoreDetailFragment.newInstance(mStores, position);
+            StoreDetailFragment detailFragment = StoreDetailFragment.newInstance(mStores, position, Constants.SOURCE_FIND);
             FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.storeDetailContainer, detailFragment);
             ft.commit();
@@ -111,12 +111,15 @@ public class StoreListAdapter extends RecyclerView.Adapter<StoreListAdapter.Stor
         public void onClick(View view) {
 
             int itemPosition = getLayoutPosition();
+            mOnStoreSelectedListener.onStoreSelected(itemPosition, mStores, Constants.SOURCE_FIND);
+
             if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
                 createDetailFragment(itemPosition);
             } else {
                 Intent intent = new Intent(mContext, StoreDetailActivity.class);
                 intent.putExtra(Constants.EXTRA_KEY_POSITION, itemPosition);
                 intent.putExtra(Constants.EXTRA_KEY_STORES, Parcels.wrap(mStores));
+                intent.putExtra(Constants.KEY_SOURCE, Constants.SOURCE_FIND);
                 mContext.startActivity(intent);
             }
         }

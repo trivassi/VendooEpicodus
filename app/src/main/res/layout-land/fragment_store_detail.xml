@@ -137,7 +137,7 @@
             android:id="@+id/saveStoreButton"
             android:layout_alignParentBottom="true"
             android:background="@color/colorAccent"
-            android:textColor="@color/colorTextIcons"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="15sp" />
     </LinearLayout>
 </FrameLayout>

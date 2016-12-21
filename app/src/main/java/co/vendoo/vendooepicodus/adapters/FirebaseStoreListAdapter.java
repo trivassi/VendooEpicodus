@@ -108,6 +108,7 @@ public class FirebaseStoreListAdapter extends FirebaseRecyclerAdapter<Store, Fir
                 return false;
             }
         });
+
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -119,6 +120,7 @@ public class FirebaseStoreListAdapter extends FirebaseRecyclerAdapter<Store, Fir
                     Intent intent = new Intent(mContext, StoreDetailActivity.class);
                     intent.putExtra(Constants.EXTRA_KEY_POSITION, itemPosition);
                     intent.putExtra(Constants.EXTRA_KEY_STORES, Parcels.wrap(mStores));
+                    intent.putExtra(Constants.KEY_SOURCE, Constants.SOURCE_SAVED);
                     mContext.startActivity(intent);
                 }
             }
@@ -127,7 +129,7 @@ public class FirebaseStoreListAdapter extends FirebaseRecyclerAdapter<Store, Fir
     }
 
     private void createDetailFragment(int position) {
-        StoreDetailFragment detailFragment = StoreDetailFragment.newInstance(mStores, position);
+        StoreDetailFragment detailFragment = StoreDetailFragment.newInstance(mStores, position, Constants.SOURCE_SAVED);
         FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.storeDetailContainer, detailFragment);
         ft.commit();
@@ -150,8 +152,7 @@ public class FirebaseStoreListAdapter extends FirebaseRecyclerAdapter<Store, Fir
         for (Store store : mStores) {
             int index = mStores.indexOf(store);
             DatabaseReference ref = getRef(index);
-            store.setIndex(Integer.toString(index));
-            ref.setValue(store);
+            ref.child("index").setValue(Integer.toString(index));
         }
     }
 

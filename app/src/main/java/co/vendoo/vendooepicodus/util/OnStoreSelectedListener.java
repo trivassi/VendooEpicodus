@@ -9,6 +9,6 @@ import co.vendoo.vendooepicodus.models.Store;
  */
 
 public interface OnStoreSelectedListener {
-    public void onStoreSelected(Integer position, ArrayList<Store> stores);
+    public void onStoreSelected(Integer position, ArrayList<Store> stores, String source);
 
 }
