@@ -96,7 +96,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mSearchedLocationReference.removeEventListener(mSearchedLocationReferenceListener);
+//        mSearchedLocationReference.removeEventListener  (mSearchedLocationReferenceListener);
     }
 
 //    private void addToSharedPreferences(String location) {

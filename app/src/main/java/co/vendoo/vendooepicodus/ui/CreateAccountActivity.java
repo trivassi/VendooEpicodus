@@ -107,6 +107,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
 
                         if (task.isSuccessful()){
                             Log.d(TAG, "Authentication successful");
+                            Log.d(TAG, task.getResult().getUser().toString());
                             createFirebaseUserProfile(task.getResult().getUser());
                         } else {
                             Toast.makeText(CreateAccountActivity.this, "Authentication failed.",
@@ -117,6 +118,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
     }
 
     private void createFirebaseUserProfile(final FirebaseUser user) {
+
 
         UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
                 .setDisplayName(mFirstName)
