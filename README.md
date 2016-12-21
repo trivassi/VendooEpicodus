@@ -1,27 +1,23 @@
 # Vendoo Epicodus
 
-#### _Lets users search from different marketplaces to either buy or sell on them_
+#### _App made for thrifters and resellers. Helps them find thrift stores nearby_
 
 #### By _**Thomas Rivas**_
 
 ## Description
 
-#### _This is an android application that lets users search from different marketplaces to either buy or sell on them _
+#### _This is an android application written in Android Studio, which helps thirfters and resellers find thrist stores nearby. Uses the Yelp API._
 
 
 ## Setup/Installation Requirements
 
 * _Clone this repository_
 * _Open in your text editor of choice_
-* _In command line write gulp build to compile and gulp serve to run on browser_
-* _Make sure you have bower install bootstrap --save so  bootstrap will work on the file_
-
-
 
 
 ## Known Bugs
 
-_{No know bugs at the time}_
+_{Still need to add features to save trips and use google services to use own location}_
 
 ## Technologies Used
 
