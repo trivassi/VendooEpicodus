@@ -23,60 +23,59 @@ import co.vendoo.vendooepicodus.models.Store;
 import co.vendoo.vendooepicodus.util.OnStartDragListener;
 import co.vendoo.vendooepicodus.util.SimpleItemTouchHelperCallback;
 
-public class SavedStoreListActivity extends AppCompatActivity implements OnStartDragListener{
-    private DatabaseReference mStoreReference;
-    private FirebaseStoreListAdapter mFirebaseAdapter;
-    private ItemTouchHelper mItemTouchHelper;
-
-    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+public class SavedStoreListActivity extends AppCompatActivity {
+//    private DatabaseReference mStoreReference;
+//    private FirebaseStoreListAdapter mFirebaseAdapter;
+//    private ItemTouchHelper mItemTouchHelper;
+//
+//    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_stores);
-        ButterKnife.bind(this);
-
-        setUpFirebaseAdapter();
+        setContentView(R.layout.activity_saved_store_list);
+//        ButterKnife.bind(this);
+//
+//        setUpFirebaseAdapter();
     }
-
-    private void setUpFirebaseAdapter() {
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-
-        Query query = FirebaseDatabase.getInstance()
-                .getReference(Constants.FIREBASE_CHILD_STORES)
-                .child(uid)
-                .orderByChild(Constants.FIREBASE_QUERY_INDEX);
-
-//        mStoreReference = FirebaseDatabase
-//                .getInstance()
+//
+//    private void setUpFirebaseAdapter() {
+//
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        String uid = user.getUid();
+//
+//        Query query = FirebaseDatabase.getInstance()
 //                .getReference(Constants.FIREBASE_CHILD_STORES)
-//                .child(uid);
-
-        mFirebaseAdapter = new FirebaseStoreListAdapter(Store.class,
-                R.layout.store_list_item_drag, FirebaseStoreViewHolder.class,
-                query, this, this);
-
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(mFirebaseAdapter);
-
-        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
-        mItemTouchHelper = new ItemTouchHelper(callback);
-        mItemTouchHelper.attachToRecyclerView(mRecyclerView);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mFirebaseAdapter.cleanup();
-    }
-
-    @Override
-    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
-        mItemTouchHelper.startDrag(viewHolder);
-    }
+//                .child(uid)
+//                .orderByChild(Constants.FIREBASE_QUERY_INDEX);
+//
+////        mStoreReference = FirebaseDatabase
+////                .getInstance()
+////                .getReference(Constants.FIREBASE_CHILD_STORES)
+////                .child(uid);
+//
+//        mFirebaseAdapter = new FirebaseStoreListAdapter(Store.class,
+//                R.layout.store_list_item_drag, FirebaseStoreViewHolder.class,
+//                query, this, this);
+//
+//        mRecyclerView.setHasFixedSize(true);
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        mRecyclerView.setAdapter(mFirebaseAdapter);
+//
+//        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
+//        mItemTouchHelper = new ItemTouchHelper(callback);
+//        mItemTouchHelper.attachToRecyclerView(mRecyclerView);
+//    }
+//
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        mFirebaseAdapter.cleanup();
+//    }
+//
+//    @Override
+//    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
+//        mItemTouchHelper.startDrag(viewHolder);
+//    }
 
 }

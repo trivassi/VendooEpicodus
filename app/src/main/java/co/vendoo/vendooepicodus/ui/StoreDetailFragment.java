@@ -24,6 +24,8 @@ import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -34,6 +36,7 @@ import butterknife.ButterKnife;
 public class StoreDetailFragment extends Fragment implements View.OnClickListener {
     private static final int MAX_WIDTH = 400;
     private static final int MAX_HEIGHT = 300;
+
     @Bind(R.id.storeImageView) ImageView mImageLabel;
     @Bind(R.id.storeNameTextView) TextView mNameLabel;
     @Bind(R.id.ratingTextView) TextView mRatingLabel;
@@ -43,11 +46,15 @@ public class StoreDetailFragment extends Fragment implements View.OnClickListene
     @Bind(R.id.saveStoreButton) TextView mSaveStoreButton;
 
     private Store mStore;
+    private ArrayList<Store> mStores;
+    private int mPosition;
 
-    public static StoreDetailFragment newInstance(Store store) {
+    public static StoreDetailFragment newInstance(ArrayList<Store> stores, Integer position) {
         StoreDetailFragment storeDetailFragment = new StoreDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("store", Parcels.wrap(store));
+        args.putParcelable(Constants.EXTRA_KEY_STORES, Parcels.wrap(stores));
+        args.putInt(Constants.EXTRA_KEY_POSITION, position);
+
         storeDetailFragment.setArguments(args);
         return storeDetailFragment;
     }
@@ -55,7 +62,9 @@ public class StoreDetailFragment extends Fragment implements View.OnClickListene
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mStore = Parcels.unwrap(getArguments().getParcelable("store"));
+        mStores = Parcels.unwrap(getArguments().getParcelable(Constants.EXTRA_KEY_STORES));
+        mPosition = getArguments().getInt(Constants.EXTRA_KEY_POSITION);
+        mStore = mStores.get(mPosition);
     }
 
     @Override

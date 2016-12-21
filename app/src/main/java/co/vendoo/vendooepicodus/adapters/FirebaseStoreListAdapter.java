@@ -2,6 +2,9 @@ package co.vendoo.vendooepicodus.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,8 +21,11 @@ import org.parceler.Parcels;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import co.vendoo.vendooepicodus.Constants;
+import co.vendoo.vendooepicodus.R;
 import co.vendoo.vendooepicodus.models.Store;
 import co.vendoo.vendooepicodus.ui.StoreDetailActivity;
+import co.vendoo.vendooepicodus.ui.StoreDetailFragment;
 import co.vendoo.vendooepicodus.util.ItemTouchHelperAdapter;
 import co.vendoo.vendooepicodus.util.OnStartDragListener;
 
@@ -33,7 +39,7 @@ public class FirebaseStoreListAdapter extends FirebaseRecyclerAdapter<Store, Fir
     private DatabaseReference mRef;
     private OnStartDragListener mOnStartDragListener;
     private Context mContext;
-
+    private int mOrientation;
 
     public FirebaseStoreListAdapter(Class<Store> modelClass, int modelLayout,
                                          Class<FirebaseStoreViewHolder> viewHolderClass,
@@ -77,8 +83,23 @@ public class FirebaseStoreListAdapter extends FirebaseRecyclerAdapter<Store, Fir
     protected void populateViewHolder(final FirebaseStoreViewHolder viewHolder, Store model, int position) {
         viewHolder.bindStore(model);
 
-        viewHolder.mStoreImageView.setOnTouchListener(new View.OnTouchListener() {
+        mOrientation = viewHolder.itemView.getResources().getConfiguration().orientation;
+        if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+            createDetailFragment(0);
+        }
 
+//        viewHolder.mStoreImageView.setOnTouchListener(new View.OnTouchListener() {
+//
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
+//                    mOnStartDragListener.onStartDrag(viewHolder);
+//                }
+//                return false;
+//            }
+//        });
+
+        viewHolder.mStoreImageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
@@ -87,17 +108,29 @@ public class FirebaseStoreListAdapter extends FirebaseRecyclerAdapter<Store, Fir
                 return false;
             }
         });
-
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, StoreDetailActivity.class);
-                intent.putExtra("position", viewHolder.getAdapterPosition());
-                intent.putExtra("stores", Parcels.wrap(mStores));
-                mContext.startActivity(intent);
+                int itemPosition = viewHolder.getAdapterPosition();
+                if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    createDetailFragment(itemPosition);
+                } else {
+                    Intent intent = new Intent(mContext, StoreDetailActivity.class);
+                    intent.putExtra(Constants.EXTRA_KEY_POSITION, itemPosition);
+                    intent.putExtra(Constants.EXTRA_KEY_STORES, Parcels.wrap(mStores));
+                    mContext.startActivity(intent);
+                }
             }
         });
+
+    }
+
+    private void createDetailFragment(int position) {
+        StoreDetailFragment detailFragment = StoreDetailFragment.newInstance(mStores, position);
+        FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.storeDetailContainer, detailFragment);
+        ft.commit();
     }
 
     @Override

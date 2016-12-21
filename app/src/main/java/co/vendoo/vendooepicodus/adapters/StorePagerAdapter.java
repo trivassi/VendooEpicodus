@@ -23,7 +23,7 @@ public class StorePagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return StoreDetailFragment.newInstance(mStores.get(position));
+        return StoreDetailFragment.newInstance(mStores, position);
     }
 
     @Override
