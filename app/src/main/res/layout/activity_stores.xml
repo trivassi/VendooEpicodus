@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/fragmentStoreList"
         android:layout_width="wrap_content"
-        android:name="co.vendoo.vendooepicodus.ui.SavedStoreListFragment"
+        android:name="co.vendoo.vendooepicodus.ui.StoreListFragment"
         android:layout_height="wrap_content"
         tools:layout="@layout/fragment_store_list" />
 
