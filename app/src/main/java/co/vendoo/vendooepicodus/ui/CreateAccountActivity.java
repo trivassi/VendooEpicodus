@@ -111,7 +111,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
                         if (task.isSuccessful()){
                             Log.d(TAG, "Authentication successful");
                             Log.d(TAG, task.getResult().getUser().toString());
-                            Toast.makeText(CreateAccountActivity.this, " Account Succesfully Made",
+                            Toast.makeText(CreateAccountActivity.this, " Account Succesfully made",
                                     Toast.LENGTH_SHORT).show();
                                     createFirebaseUserProfile(task.getResult().getUser());
                         } else {

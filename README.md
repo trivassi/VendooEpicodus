@@ -17,7 +17,7 @@
 
 ## Known Bugs
 
-_{Still need to add features to save trips and use google services to use own location}_
+_{Sometimes on first search using zip code one must press search widget}_
 
 ## Technologies Used
 

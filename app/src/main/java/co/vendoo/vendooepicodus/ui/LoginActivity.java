@@ -94,6 +94,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
+
                         mAuthProgressDialog.dismiss();
 
                         if (!task.isSuccessful()) {
