@@ -100,6 +100,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             Log.w(TAG, "signInWithEmail", task.getException());
                             Toast.makeText(LoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Login is Succesful",
+                                    Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -124,7 +127,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if (view == mPasswordLoginButton) {
             loginWithPassword();
-//            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
         }
     }
 
