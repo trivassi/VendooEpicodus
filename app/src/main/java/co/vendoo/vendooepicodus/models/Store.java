@@ -89,4 +89,6 @@ public class Store {
     public void setIndex(String index) {
         this.index = index;
     }
+
+
 }

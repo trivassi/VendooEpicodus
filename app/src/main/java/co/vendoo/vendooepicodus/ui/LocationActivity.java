@@ -31,7 +31,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
 
 
     @Bind(R.id.zipCodeButton) Button mZipCodeButton;
-    @Bind(R.id.currentLocationButton) Button mCurrentLocationButton;
+//    @Bind(R.id.currentLocationButton) Button mCurrentLocationButton;
     @Bind(R.id.locationEditText) EditText mLocationEditText;
 
     @Override
@@ -65,7 +65,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
 //        mEditor = mSharedPreferences.edit();
 
         mZipCodeButton.setOnClickListener(this);
-        mCurrentLocationButton.setOnClickListener(this);
+//        mCurrentLocationButton.setOnClickListener(this);
     }
 
     @Override
