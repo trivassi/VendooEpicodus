@@ -1,4 +1,4 @@
-# Vendoo Epicodus
+# VendooEpicodus
 
 #### _App made for thrifters and resellers. Helps them find thrift stores nearby_
 
@@ -6,7 +6,7 @@
 
 ## Description
 
-#### _This is an android application written in Android Studio, which helps thirfters and resellers find thrist stores nearby. Uses the Yelp API._
+#### _This is an android application written in Android Studio, which helps thirfters and resellers find thrift stores nearby using the Yelp API. Able to also take pics of items and save them inside the app. _
 
 
 ## Setup/Installation Requirements
@@ -27,6 +27,7 @@ _{Still need to add features to save trips and use google services to use own lo
 * _Gradle_
 * _Butterknife_
 * _Git_
+*_Yelp API_
 
 
 
