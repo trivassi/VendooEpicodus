@@ -24,12 +24,14 @@ import co.vendoo.vendooepicodus.Constants;
 import co.vendoo.vendooepicodus.R;
 
 public class LocationActivity extends AppCompatActivity implements View.OnClickListener {
-
+        private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
     private DatabaseReference mSearchedLocationReference;
     private ValueEventListener mSearchedLocationReferenceListener;
 
 
     @Bind(R.id.zipCodeButton) Button mZipCodeButton;
+//    @Bind(R.id.currentLocationButton) Button mCurrentLocationButton;
     @Bind(R.id.locationEditText) EditText mLocationEditText;
 
     @Override
@@ -59,8 +61,11 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_location);
         ButterKnife.bind(this);
 
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
 
         mZipCodeButton.setOnClickListener(this);
+//        mCurrentLocationButton.setOnClickListener(this);
     }
 
     @Override
@@ -70,15 +75,17 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
             String location = mLocationEditText.getText().toString();
 
             saveLocationToFirebase(location);
-
-//            }
+            if (!(location).equals("")) {
+                addToSharedPreferences(location);
+            }
             Intent intent = new Intent(LocationActivity.this , StoreListActivity.class);
             intent.putExtra("location", location);
             Toast.makeText(LocationActivity.this, "Use search on top of screen to change zip codes",
                     Toast.LENGTH_SHORT).show();
             startActivity(intent);
-
         }
+
+
 
     }
 
@@ -89,7 +96,10 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onDestroy() {
         super.onDestroy();
+//        mSearchedLocationReference.removeEventListener  (mSearchedLocationReferenceListener);
     }
 
-
+    private void addToSharedPreferences(String location) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
+    }
 }
