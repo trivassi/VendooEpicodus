@@ -23,7 +23,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
 
     @Bind(R.id.findButton) Button mFindButton;
-    @Bind(R.id.tripsButton) Button mTripsButton;
+    @Bind(R.id.itemsButton) Button mItemsButton;
     @Bind(R.id.storesButton) Button mStoresButton;
     @Bind(R.id.greetingTextView) TextView mGreetingTextView;
 
@@ -53,7 +53,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
 
         mFindButton.setOnClickListener(this);
-        mTripsButton.setOnClickListener(this);
+        mItemsButton.setOnClickListener(this);
         mStoresButton.setOnClickListener(this);
 //        Intent intent = getIntent();
 //        String firstName = intent.getStringExtra("firstName");    //Retrieve extended data from the intent.
@@ -83,7 +83,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             //            intent.putExtra("location", location);
             startActivity(intent);
 
-        }  if (v == mTripsButton) {
+        }  if (v == mItemsButton) {
+
             Toast.makeText(HomeActivity.this, "Trips section coming soon!", Toast.LENGTH_SHORT).show();
 
         } if (v == mStoresButton) {
