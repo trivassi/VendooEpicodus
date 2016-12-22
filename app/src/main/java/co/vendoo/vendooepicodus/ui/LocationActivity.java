@@ -84,9 +84,9 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
         }
 
 
-        if (v == mCurrentLocationButton) {
-            Toast.makeText(LocationActivity.this , "Coming soon!", Toast.LENGTH_LONG).show();
-        }
+//        if (v == mCurrentLocationButton) {
+//            Toast.makeText(LocationActivity.this , "Coming soon!", Toast.LENGTH_LONG).show();
+//        }
     }
 
     private void saveLocationToFirebase(String location) {

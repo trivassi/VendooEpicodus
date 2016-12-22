@@ -10,14 +10,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="co.vendoo.vendooepicodus.ui.LocationActivity">
 
-    <Button
-        android:text="Find Near You"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/currentLocationButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+    <!--<Button-->
+        <!--android:text="Find Near You"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/currentLocationButton"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true" />-->
 
     <EditText
         android:layout_width="wrap_content"
@@ -37,11 +37,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/zipCodeButton"
-        android:layout_marginBottom="69dp"
+        android:layout_marginBottom="48dp"
         android:text="Find with Zip Code"
-        android:layout_above="@+id/currentLocationButton"
-        android:layout_alignLeft="@+id/locationEditText"
-        android:layout_alignStart="@+id/locationEditText"
-        android:layout_marginLeft="28dp"
-        android:layout_marginStart="28dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
