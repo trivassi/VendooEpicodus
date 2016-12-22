@@ -24,7 +24,7 @@ import co.vendoo.vendooepicodus.Constants;
 import co.vendoo.vendooepicodus.R;
 
 public class LocationActivity extends AppCompatActivity implements View.OnClickListener {
-//    private SharedPreferences mSharedPreferences;
+    //    private SharedPreferences mSharedPreferences;
 //    private SharedPreferences.Editor mEditor;
     private DatabaseReference mSearchedLocationReference;
     private ValueEventListener mSearchedLocationReferenceListener;

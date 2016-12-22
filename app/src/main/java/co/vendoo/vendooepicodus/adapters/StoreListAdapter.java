@@ -73,14 +73,19 @@ public class StoreListAdapter extends RecyclerView.Adapter<StoreListAdapter.Stor
 
         private Context mContext;
         private int mOrientation;
+        private ArrayList<Store> mStores = new ArrayList<>();
+        private OnStoreSelectedListener mOnStoreSelectedListener;
 
-        public StoreViewHolder(View itemView, ArrayList<Store> mStores, OnStoreSelectedListener mOnStoreSelectedListener) {
+
+        public StoreViewHolder(View itemView, ArrayList<Store> stores, OnStoreSelectedListener storeSelectedListener)
+        {
             super(itemView);
             ButterKnife.bind(this, itemView);
 
             mContext = itemView.getContext();
-
             mOrientation = itemView.getResources().getConfiguration().orientation;
+            mStores = stores;
+            mOnStoreSelectedListener = storeSelectedListener;
 
             if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
                 createDetailFragment(0);
@@ -102,16 +107,17 @@ public class StoreListAdapter extends RecyclerView.Adapter<StoreListAdapter.Stor
         }
 
         private void createDetailFragment(int position) {
-            StoreDetailFragment detailFragment = StoreDetailFragment.newInstance(mStores, position, Constants.SOURCE_FIND);
+            StoreDetailFragment detailFragment = StoreDetailFragment.newInstance(mStores, position);
             FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.storeDetailContainer, detailFragment);
             ft.commit();
         }
         @Override
         public void onClick(View view) {
-
             int itemPosition = getLayoutPosition();
-            mOnStoreSelectedListener.onStoreSelected(itemPosition, mStores, Constants.SOURCE_FIND);
+            //?????????????????????
+            mOnStoreSelectedListener.onStoreSelected(itemPosition, mStores);
+            //?????????????????????
 
             if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
                 createDetailFragment(itemPosition);
@@ -119,7 +125,6 @@ public class StoreListAdapter extends RecyclerView.Adapter<StoreListAdapter.Stor
                 Intent intent = new Intent(mContext, StoreDetailActivity.class);
                 intent.putExtra(Constants.EXTRA_KEY_POSITION, itemPosition);
                 intent.putExtra(Constants.EXTRA_KEY_STORES, Parcels.wrap(mStores));
-                intent.putExtra(Constants.KEY_SOURCE, Constants.SOURCE_FIND);
                 mContext.startActivity(intent);
             }
         }

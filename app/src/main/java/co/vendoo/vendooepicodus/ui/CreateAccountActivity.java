@@ -27,12 +27,15 @@ import co.vendoo.vendooepicodus.R;
 public class CreateAccountActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String TAG = CreateAccountActivity.class.getSimpleName();
 
-    @Bind(R.id.createUserButton) Button mCreateUserButton;
     @Bind(R.id.firstNameEditText) EditText mFirstNameEditText;
     @Bind(R.id.lastNameEditText) EditText mLastNameEditText;
     @Bind(R.id.emailEditText) EditText mEmailEditText;
     @Bind(R.id.passwordEditText) EditText mPasswordEditText;
+
+
     @Bind(R.id.loginTextView) TextView mLoginTextView;
+    @Bind(R.id.createUserButton) Button mCreateUserButton;
+
 
 
     private FirebaseAuth mAuth;
@@ -130,7 +133,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Log.d(TAG, user.getDisplayName());
+//                            Log.d(TAG, user.getDisplayName());
                         }
                     }
 

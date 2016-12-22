@@ -34,16 +34,16 @@ import co.vendoo.vendooepicodus.util.OnStartDragListener;
  */
 public class FirebaseStoreListAdapter extends FirebaseRecyclerAdapter<Store, FirebaseStoreViewHolder>  implements ItemTouchHelperAdapter {
 
-    private ChildEventListener mChildEventListener;
-    private ArrayList<Store> mStores = new ArrayList<>();
     private DatabaseReference mRef;
     private OnStartDragListener mOnStartDragListener;
+    private ChildEventListener mChildEventListener;
     private Context mContext;
+    private ArrayList<Store> mStores = new ArrayList<>();
     private int mOrientation;
 
     public FirebaseStoreListAdapter(Class<Store> modelClass, int modelLayout,
-                                         Class<FirebaseStoreViewHolder> viewHolderClass,
-                                         Query ref, OnStartDragListener onStartDragListener, Context context) {
+                                    Class<FirebaseStoreViewHolder> viewHolderClass,
+                                    Query ref, OnStartDragListener onStartDragListener, Context context) {
 
         super(modelClass, modelLayout, viewHolderClass, ref);
         mRef = ref.getRef();
@@ -88,18 +88,8 @@ public class FirebaseStoreListAdapter extends FirebaseRecyclerAdapter<Store, Fir
             createDetailFragment(0);
         }
 
-//        viewHolder.mStoreImageView.setOnTouchListener(new View.OnTouchListener() {
-//
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
-//                    mOnStartDragListener.onStartDrag(viewHolder);
-//                }
-//                return false;
-//            }
-//        });
-
         viewHolder.mStoreImageView.setOnTouchListener(new View.OnTouchListener() {
+
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
@@ -108,6 +98,7 @@ public class FirebaseStoreListAdapter extends FirebaseRecyclerAdapter<Store, Fir
                 return false;
             }
         });
+
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
 
@@ -120,7 +111,6 @@ public class FirebaseStoreListAdapter extends FirebaseRecyclerAdapter<Store, Fir
                     Intent intent = new Intent(mContext, StoreDetailActivity.class);
                     intent.putExtra(Constants.EXTRA_KEY_POSITION, itemPosition);
                     intent.putExtra(Constants.EXTRA_KEY_STORES, Parcels.wrap(mStores));
-                    intent.putExtra(Constants.KEY_SOURCE, Constants.SOURCE_SAVED);
                     mContext.startActivity(intent);
                 }
             }
@@ -129,7 +119,7 @@ public class FirebaseStoreListAdapter extends FirebaseRecyclerAdapter<Store, Fir
     }
 
     private void createDetailFragment(int position) {
-        StoreDetailFragment detailFragment = StoreDetailFragment.newInstance(mStores, position, Constants.SOURCE_SAVED);
+        StoreDetailFragment detailFragment = StoreDetailFragment.newInstance(mStores, position);
         FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.storeDetailContainer, detailFragment);
         ft.commit();
@@ -152,7 +142,8 @@ public class FirebaseStoreListAdapter extends FirebaseRecyclerAdapter<Store, Fir
         for (Store store : mStores) {
             int index = mStores.indexOf(store);
             DatabaseReference ref = getRef(index);
-            ref.child("index").setValue(Integer.toString(index));
+            store.setIndex(Integer.toString(index));
+            ref.setValue(store);
         }
     }
 

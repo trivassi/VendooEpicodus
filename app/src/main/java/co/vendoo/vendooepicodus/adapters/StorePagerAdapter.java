@@ -15,17 +15,15 @@ import co.vendoo.vendooepicodus.ui.StoreDetailFragment;
 
 public class StorePagerAdapter extends FragmentPagerAdapter {
     private ArrayList<Store> mStores;
-    private String mSource;
 
-    public StorePagerAdapter(FragmentManager fm, ArrayList<Store> stores, String source) {
+    public StorePagerAdapter(FragmentManager fm, ArrayList<Store> stores) {
         super(fm);
         mStores = stores;
-        mSource = source;
     }
 
     @Override
     public Fragment getItem(int position) {
-        return StoreDetailFragment.newInstance(mStores, position, mSource);
+        return StoreDetailFragment.newInstance(mStores, position);
     }
 
     @Override

@@ -101,12 +101,12 @@
                     android:textStyle="bold" />
 
                 <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Brunch, American"-->
-                    <!--android:id="@+id/cuisineTextView"-->
-                    <!--android:textColor="@color/colorSecondaryText"-->
-                    <!--android:textStyle="italic" />-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Brunch, American"-->
+                <!--android:id="@+id/cuisineTextView"-->
+                <!--android:textColor="@color/colorSecondaryText"-->
+                <!--android:textStyle="italic" />-->
 
             </LinearLayout>
 
@@ -137,7 +137,7 @@
             android:id="@+id/saveStoreButton"
             android:layout_alignParentBottom="true"
             android:background="@color/colorAccent"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorTextIcons"
             android:textSize="15sp" />
     </LinearLayout>
 </FrameLayout>

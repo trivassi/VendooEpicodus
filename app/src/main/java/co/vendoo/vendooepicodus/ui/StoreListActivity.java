@@ -35,19 +35,10 @@ import co.vendoo.vendooepicodus.models.Store;
 import co.vendoo.vendooepicodus.services.YelpService;
 
 public class StoreListActivity extends AppCompatActivity implements OnStoreSelectedListener {
-//    private SharedPreferences mSharedPreferences;
-//    private SharedPreferences.Editor mEditor;
-//    private String mRecentAddress;
-////    public static final String TAG = StoreListActivity.class.getSimpleName();
-//
-//    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
-//
-//    private StoreListAdapter mAdapter;
-//    public ArrayList<Store> mStores = new ArrayList<>();
+
 
     private Integer mPosition;
     ArrayList<Store> mStores;
-    String mSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,20 +50,17 @@ public class StoreListActivity extends AppCompatActivity implements OnStoreSelec
             if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
                 mPosition = savedInstanceState.getInt(Constants.EXTRA_KEY_POSITION);
                 mStores = Parcels.unwrap(savedInstanceState.getParcelable(Constants.EXTRA_KEY_STORES));
-                mSource = savedInstanceState.getString(Constants.KEY_SOURCE);
 
                 if (mPosition != null && mStores != null) {
                     Intent intent = new Intent(this, StoreDetailActivity.class);
                     intent.putExtra(Constants.EXTRA_KEY_POSITION, mPosition);
                     intent.putExtra(Constants.EXTRA_KEY_STORES, Parcels.wrap(mStores));
-                    intent.putExtra(Constants.KEY_SOURCE, mSource);
                     startActivity(intent);
                 }
 
             }
 
         }
-
 
     }
 
@@ -83,115 +71,16 @@ public class StoreListActivity extends AppCompatActivity implements OnStoreSelec
         if (mPosition != null && mStores != null) {
             outState.putInt(Constants.EXTRA_KEY_POSITION, mPosition);
             outState.putParcelable(Constants.EXTRA_KEY_STORES, Parcels.wrap(mStores));
-            outState.putString(Constants.KEY_SOURCE, mSource);
         }
 
     }
 
-
     @Override
-    public void onStoreSelected(Integer position, ArrayList<Store> stores, String source) {
+    public void onStoreSelected(Integer position, ArrayList<Store> stores) {
         mPosition = position;
         mStores = stores;
-        mSource = source;
+
     }
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-//        ButterKnife.bind(this);
-//
-//        Intent intent = getIntent();
-//        String location = intent.getStringExtra("location");
-//
-//        getStores(location);
-//
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
-//        if (mRecentAddress != null) {
-//            getStores(mRecentAddress);
-//        }
-
-
-
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.menu_search, menu);
-//        ButterKnife.bind(this);
-//
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mEditor = mSharedPreferences.edit();
-//
-//        MenuItem menuItem = menu.findItem(R.id.action_search);
-//        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
-//
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                addToSharedPreferences(query);
-//                getStores(query);
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                return false;
-//            }
-//        });
-//
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        return super.onOptionsItemSelected(item);
-//    }
-//
-//    private void getStores(String location) {
-//        final YelpService yelpService = new YelpService();
-//
-//        yelpService.findStores(location, new Callback() {
-//
-//            @Override
-//            public void onFailure(Call call, IOException e) {
-//                e.printStackTrace();
-//            }
-//
-//            @Override
-//            public void onResponse(Call call, Response response) {
-//                mStores = yelpService.processResults(response);
-//
-//                StoreListActivity.this.runOnUiThread(new Runnable() {
-//
-//                    @Override
-//                    public void run() {
-//                        mAdapter = new StoreListAdapter(getApplicationContext(), mStores);
-//                        mRecyclerView.setAdapter(mAdapter);
-//                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(StoreListActivity.this);
-//                        mRecyclerView.setLayoutManager(layoutManager);
-//                        mRecyclerView.setHasFixedSize(true);
-//                    }
-//                }); //runonuithread
-//
-//            }//on response
-//
-//        }); //callback
-//    }
-//
-//    private void addToSharedPreferences(String location) {
-//        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
-//    }
-
